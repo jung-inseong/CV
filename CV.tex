@@ -35,15 +35,23 @@
 %% 전환 방법: 쓰려는 쪽의 % 를 떼고, 안 쓰는 쪽 4줄에 % 를 붙인다.
 
 %% [A] Pretendard — 산세리프. 좁아서 한 줄에 더 많이 들어간다.
+%% Thin~Black 9단계가 있어 굵은자를 Pretendard-ExtraBold.otf 나
+%% Pretendard-Black.otf 로 바꾸면 훨씬 두꺼워진다 (Fonts/ 에 파일 추가 필요).
 % \setmainfont{Pretendard-Regular.otf}
 % [Path=./Fonts/Pretendard/,
 % BoldFont=Pretendard-Bold.otf,
 % AutoFakeSlant=0.2]
 
 %% [B] KoPubWorld Batang — 명조체. ★ 현재 사용 중.
+%%
+%% 이 계열에는 Light / Medium / Bold 세 굵기뿐이고 Bold 가 가장 두껍다.
+%% 그보다 더 굵게 하려고 FakeBold 로 획을 합성해 덧입혔다.
+%% 숫자를 키우면 더 두꺼워진다 (1.2 = 약간, 2.0 = 상당히).
+%% 굵기가 부담스러우면 BoldFeatures 줄만 지우면 원래 Bold 로 돌아간다.
 \setmainfont{KoPubWorld Batang Medium.ttf}
 [Path=./Fonts/KoPubWorldBatang/,
 BoldFont=KoPubWorld Batang Bold.ttf,
+BoldFeatures={FakeBold=1.5},
 AutoFakeSlant=0.2]
 
 %% 클래스가 GNU FreeSerif 로 잡아둔 보조 폰트도 본문 폰트로 통일한다.
@@ -52,7 +60,7 @@ AutoFakeSlant=0.2]
 %% ── 본문 크기와 줄간격 ────────────────────────────────────────
 %% {글자크기}{줄간격}. 두 번째 값이 줄간격이며, 보통 글자크기의
 %% 1.2배가 기본이다. 아래는 1.3배로 조금 넉넉하게 잡은 것이다.
-\renewcommand{\normalsize}{\fontsize{9pt}{12pt}\selectfont}
+\renewcommand{\normalsize}{\fontsize{9pt}{12.5pt}\selectfont}
 \normalsize
 
 %% ── 부분별 크기 (필요할 때만 조정) ─────────────────────────────
@@ -287,21 +295,21 @@ Early Graduation with High Honors
 \Entry
 \ResetNumbering
 \NumItem
-Jung, Inseong and Eun Kyong Shin. (2026, Aug.)
+\textbf{Jung, Inseong} and Eun Kyong Shin. (2026, Aug.)
 ``Have the US Partisans Become More Predictable? A Machine Learning Approach.''
 2026 ASA Annual Meeting, Political Sociology Section Roundtable.
 New York, United States.
 
 \Gap
 \NumItem
-Jung, Inseong. (2026, Aug.)
+\textbf{Jung, Inseong}. (2026, Aug.)
 ``Do You Talk the Way You Think? Multidimensional Belief System and Unidimensional Talk.''
 2026 Association of Korean American Sociologists Conference.
 New York, United States.
 
 \Gap
 \NumItem
-Jung, Inseong. (2026, Jun.)
+\textbf{Jung, Inseong}. (2026, Jun.)
 ``Multidimensionality of Political Polarization: A Belief System and Word Embedding Approach.''
 Korean Sociological Association Conference.
 Busan, South Korea.
@@ -313,7 +321,7 @@ Busan, South Korea.
 
 \Gap
 \NumItem
-Jung, Inseong. (2025, Nov.)
+\textbf{Jung, Inseong}. (2025, Nov.)
 ``How Do Attitudes Predict Partisan Identity? A Machine Learning Approach.''
 Critical Sociological Association Conference.
 Seoul, South Korea.
@@ -325,7 +333,7 @@ Seoul, South Korea.
 
 \Gap
 \NumItem
-Shin, Eun Kyong, Hannah Baek, and Inseong Jung. (2025, Nov.)
+Shin, Eun Kyong, Hannah Baek, and \textbf{Inseong Jung}. (2025, Nov.)
 ``A Machine Learning Trilogy: Unraveling Adult Intelligence, Adolescent Academic
 Achievement, and Political Identity.''
 Harvard University Urban Data Workshop.
@@ -333,7 +341,7 @@ Massachusetts, United States.
 
 \Gap
 \NumItem
-Jung, Inseong. (2025, Aug.)
+\textbf{Jung, Inseong}. (2025, Aug.)
 ``Martial Law and the Amplification of Affective Antagonism:
 Online Community Posts Analysis for the Two Major Parties.''
 Summer Conference of Critical Sociological Association of Korea.
@@ -346,7 +354,7 @@ Chungju, South Korea.
 
 \Gap
 \NumItem
-Jung, Inseong. (2024, Dec.)
+\textbf{Jung, Inseong}. (2024, Dec.)
 ``Who Becomes an Adult? Effect of Regional Origin and Family Background
 on Attaining Traditional Markers of Adulthood.''
 Korean Sociological Association Conference.
@@ -359,7 +367,7 @@ Seoul, South Korea.
 
 \Gap
 \NumItem
-Jung, Inseong. (2023, Aug.)
+\textbf{Jung, Inseong}. (2023, Aug.)
 ``Accident or State Violence? Social Disaster Discourse Analysis on
 the Sewol Ferry Disaster and the Itaewon Tragedy.''
 PNC 2024 Annual Conference and Joint Meetings.

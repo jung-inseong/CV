@@ -42,6 +42,14 @@ latexmk -c                     # 중간 산출물 정리
 % [Path=./Fonts/KoPubWorldBatang/, BoldFont=KoPubWorld Batang Bold.ttf, AutoFakeSlant=0.2]
 ```
 
+**굵은글자 두께** — KoPubWorld Batang에는 Light / Medium / Bold 세 굵기뿐이고 Bold가 가장 두껍다. 그보다 더 굵게 하려고 `FakeBold`로 획을 합성해 덧입혔다.
+
+```latex
+BoldFeatures={FakeBold=1.5},   % 1.2 = 약간, 2.0 = 상당히. 줄을 지우면 원래 Bold
+```
+
+Pretendard로 바꾸면 Thin~Black 9단계가 있으므로 합성 대신 `Pretendard-ExtraBold.otf`나 `Pretendard-Black.otf`를 `BoldFont`로 지정하면 된다 (`Fonts/Pretendard/`에 해당 파일을 넣어야 한다).
+
 **한글은 그냥 쓰면 된다.** 두 폰트 모두 한글 글리프를 가지고 있어서 영문·한글·불릿기호가 한 폰트로 나온다. 예전처럼 한글용 폰트를 따로 얹거나 본문에서 감쌀 필요가 없다.
 
 ```latex
