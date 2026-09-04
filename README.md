@@ -72,10 +72,11 @@ latexmk -c                     # 중간 산출물 정리
 ## 자주 쓰는 문법
 
 ```latex
+\SectionGap                         % 섹션 사이 여백 (필요한 곳에만)
 \Section{목차명}{제목}{PDF북마크}   % 좌측 섹션 라벨
 
 \Entry                              % 항목 시작
-\BulletItem   내용 \hfill \DatestampY{2025}        % 큰 항목 + 우측 날짜
+\BulletItem   내용 \hfill \DatestampY{2025}        % 불릿 항목 + 우측 날짜
 \Gap                                % 항목 사이 간격
 \begin{Detail}
 \SubBulletItem 세부 내용            % 들여쓴 하위 항목
@@ -85,6 +86,23 @@ latexmk -c                     # 중간 산출물 정리
 \DatestampYM{2026}{08}              % Aug 2026
 \DatestampY{2020} -- \DatestampY{2025}
 ```
+
+**번호 항목** — Conference Presentations 처럼 번호를 매기는 목록에는 `\NumItem`을 쓴다. 번호는 자동으로 올라가므로 항목을 중간에 넣거나 빼도 손댈 필요가 없다.
+
+```latex
+\Entry
+\ResetNumbering        % 번호를 1부터 다시 시작
+\NumItem
+Jung, Inseong. (2026, Aug.) ``제목.'' 학회명. 장소.
+
+\Gap
+\NumItem
+...
+```
+
+이 목록은 날짜를 우측 정렬하지 않고 저자 뒤 괄호 안에 넣는다(`(2026, Aug.)`). 원본 docx 형식을 따른 것이다.
+
+번호 자리 너비는 설정 블록의 `\MaxNumberedItem`이 정한다. 지금은 두 자리(`88.`)로 잡혀 있어 항목이 10개를 넘어도 들여쓰기가 흔들리지 않는다.
 
 인용부호는 LaTeX 방식으로 쓴다: ``` ``큰따옴표'' ```
 

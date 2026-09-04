@@ -34,13 +34,13 @@
 %%
 %% 전환 방법: 쓰려는 쪽의 % 를 떼고, 안 쓰는 쪽 4줄에 % 를 붙인다.
 
-%% [A] Pretendard — 산세리프. 현재 사용 중.
+%% [A] Pretendard — 산세리프. 좁아서 한 줄에 더 많이 들어간다.
 % \setmainfont{Pretendard-Regular.otf}
 % [Path=./Fonts/Pretendard/,
 % BoldFont=Pretendard-Bold.otf,
 % AutoFakeSlant=0.2]
 
-%% [B] KoPubWorld Batang — 명조체. 글자가 넓어 분량이 다소 늘어난다.
+%% [B] KoPubWorld Batang — 명조체. ★ 현재 사용 중.
 \setmainfont{KoPubWorld Batang Medium.ttf}
 [Path=./Fonts/KoPubWorldBatang/,
 BoldFont=KoPubWorld Batang Bold.ttf,
@@ -52,18 +52,35 @@ AutoFakeSlant=0.2]
 %% ── 본문 크기와 줄간격 ────────────────────────────────────────
 %% {글자크기}{줄간격}. 두 번째 값이 줄간격이며, 보통 글자크기의
 %% 1.2배가 기본이다. 아래는 1.3배로 조금 넉넉하게 잡은 것이다.
-\renewcommand{\normalsize}{\fontsize{10pt}{13pt}\selectfont}
+\renewcommand{\normalsize}{\fontsize{10pt}{14pt}\selectfont}
 \normalsize
 
 %% ── 부분별 크기 (필요할 때만 조정) ─────────────────────────────
-\renewcommand{\UseTitleFont}{\UseHeadingFont\fontsize{26pt}{31pt}\selectfont\bfseries}
+\renewcommand{\UseTitleFont}{\UseHeadingFont\fontsize{20pt}{24pt}\selectfont\bfseries}
 \renewcommand{\UseSubTitleFont}{\normalfont\fontsize{9pt}{11pt}\selectfont}
 \renewcommand{\UseSectionFont}{\UseHeadingFont\fontsize{9pt}{11pt}\selectfont\bfseries}
 \renewcommand{\UseDetailFont}{\normalfont\fontsize{8.8pt}{10.6pt}\selectfont}
 
+%% ── 섹션 사이 여백 ────────────────────────────────────────────
+%% 앞 섹션 내용이 한 줄뿐이면 다음 섹션 제목이 바짝 붙어 보인다.
+%% 그럴 때 \Section 앞에 \SectionGap 을 넣는다.
+\newcommand{\SectionGap}{\par\vspace{3.5mm}\par}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% ▲▲▲ 설정 끝 ▲▲▲
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% 자동 번호 항목.
+%% 클래스가 제공하는 \NumberedItem{라벨} 은 라벨을 직접 넘겨야 해서
+%% 항목을 넣고 뺄 때마다 번호를 손으로 고쳐야 한다. 카운터를 물려
+%% \NumItem 하나로 자동으로 매겨지게 감쌌다.
+%%
+%% \MaxNumberedItem 은 번호 자리의 너비 기준이다. 두 자리(88.)로
+%% 잡아두면 항목이 10개를 넘어도 들여쓰기가 흔들리지 않는다.
+\renewcommand{\MaxNumberedItem}{88.}
+\newcounter{PresNo}
+\newcommand{\ResetNumbering}{\setcounter{PresNo}{0}}
+\newcommand{\NumItem}{\refstepcounter{PresNo}\NumberedItem{\thePresNo.}}
 
 %% 마침표 뒤 여분 공백을 없앤다. 발표 목록처럼 마침표가 많은 항목에서
 %% 줄이 불필요하게 늘어나 오른쪽 끝의 날짜가 다음 줄로 밀리는 것을 막는다.
@@ -149,112 +166,100 @@ Early Graduation with High Honors
 {PDF:ResearchInterests}
 
 \Entry
-Cultural Schema, Political Polarization, Computational Sociology, Social Network
+\textbf{Sociology of Culture, Political Polarization, Computational Sociology, Social Network}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% CONFERENCE PRESENTATIONS %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\SectionGap
 \Section
 {Conference Presentations}
 {Conference Presentations}
 {PDF:ConferencePresentations}
 
+%% 날짜는 우측 정렬하지 않고 docx 원본처럼 저자 뒤 괄호 안에 넣는다.
+%% 항목은 \BulletItem 대신 \NumberedItem 으로 번호를 붙인다.
 \Entry
-\BulletItem
-Jung, Inseong and Eun Kyong Shin.
+\ResetNumbering
+\NumItem
+Jung, Inseong and Eun Kyong Shin. (2026, Aug.)
 ``Have the US Partisans Become More Predictable? A Machine Learning Approach.''
 2026 ASA Annual Meeting, Political Sociology Section Roundtable.
 New York, United States.
-\hfill
-\DatestampYM{2026}{08}
 
 \Gap
-\BulletItem
-Jung, Inseong.
+\NumItem
+Jung, Inseong. (2026, Aug.)
 ``Do You Talk the Way You Think? Multidimensional Belief System and Unidimensional Talk.''
 2026 Association of Korean American Sociologists Conference.
 New York, United States.
-\hfill
-\DatestampYM{2026}{08}
 
 \Gap
-\BulletItem
-Jung, Inseong.
+\NumItem
+Jung, Inseong. (2026, Jun.)
 ``Multidimensionality of Political Polarization: A Belief System and Word Embedding Approach.''
 Korean Sociological Association Conference.
 Busan, South Korea.
-\hfill
-\DatestampYM{2026}{06}
 \begin{Detail}
 \SubBulletItem
-정인성. ``정치적 양극화의 다차원성: 신념 체계와 발화 임베딩 연구.''
+정인성. (2026, Jun.) ``정치적 양극화의 다차원성: 신념 체계와 발화 임베딩 연구.''
 한국사회학회 전기사회학대회. 부산, 대한민국.
 \end{Detail}
 
 \Gap
-\BulletItem
-Jung, Inseong.
+\NumItem
+Jung, Inseong. (2025, Nov.)
 ``How Do Attitudes Predict Partisan Identity? A Machine Learning Approach.''
 Critical Sociological Association Conference.
 Seoul, South Korea.
-\hfill
-\DatestampYM{2025}{11}
 \begin{Detail}
 \SubBulletItem
-정인성. ``태도는 어떻게 당파성을 예측하는가? 머신러닝 활용 당파성 예측 연구.''
+정인성. (2025, Nov.) ``태도는 어떻게 당파성을 예측하는가? 머신러닝 활용 당파성 예측 연구.''
 2025년 비판사회학대회. 서울, 대한민국.
 \end{Detail}
 
 \Gap
-\BulletItem
-Shin, Eun Kyong, Hannah Baek, and Inseong Jung.
+\NumItem
+Shin, Eun Kyong, Hannah Baek, and Inseong Jung. (2025, Nov.)
 ``A Machine Learning Trilogy: Unraveling Adult Intelligence, Adolescent Academic
 Achievement, and Political Identity.''
 Harvard University Urban Data Workshop.
 Massachusetts, United States.
-\hfill
-\DatestampYM{2025}{11}
 
 \Gap
-\BulletItem
-Jung, Inseong.
+\NumItem
+Jung, Inseong. (2025, Aug.)
 ``Martial Law and the Amplification of Affective Antagonism:
 Online Community Posts Analysis for the Two Major Parties.''
 Summer Conference of Critical Sociological Association of Korea.
 Chungju, South Korea.
-\hfill
-\DatestampYM{2025}{08}
 \begin{Detail}
 \SubBulletItem
-정인성. ``계엄과 정서적 적대감의 증폭: 양대 정당 온라인 커뮤니티 게시글 분석.''
+정인성. (2025, Aug.) ``계엄과 정서적 적대감의 증폭: 양대 정당 온라인 커뮤니티 게시글 분석.''
 비판사회학회 하계학술대회. 청주, 대한민국.
 \end{Detail}
 
 \Gap
-\BulletItem
-Jung, Inseong.
+\NumItem
+Jung, Inseong. (2024, Dec.)
 ``Who Becomes an Adult? Effect of Regional Origin and Family Background
 on Attaining Traditional Markers of Adulthood.''
 Korean Sociological Association Conference.
 Seoul, South Korea.
-\hfill
-\DatestampYM{2024}{12}
 \begin{Detail}
 \SubBulletItem
-정인성. ``누가 어른이 되는가? 출신 지역과 가족 배경이 전통적 성인기 이행 지표
+정인성. (2024, Dec.) ``누가 어른이 되는가? 출신 지역과 가족 배경이 전통적 성인기 이행 지표
 획득에 미치는 영향.'' 한국사회학회 후기사회학대회. 서울, 대한민국.
 \end{Detail}
 
 \Gap
-\BulletItem
-Jung, Inseong.
+\NumItem
+Jung, Inseong. (2023, Aug.)
 ``Accident or State Violence? Social Disaster Discourse Analysis on
 the Sewol Ferry Disaster and the Itaewon Tragedy.''
 PNC 2024 Annual Conference and Joint Meetings.
 Seoul, South Korea.
-\hfill
-\DatestampYM{2023}{08}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 %% GRANTS & SCHOLARSHIPS %%
