@@ -117,6 +117,15 @@ AutoFakeSlant=0.2]
 %% 표식 없이 본문만 같은 열에 맞추는 항목.
 \renewcommand{\Item}{\CVMakeItem{}}
 
+%% 상위 항목(불릿·번호)과 하위 항목 사이 여백.
+%% Detail 환경이 열릴 때 한 번만 넣으므로 하위 항목끼리는 붙어 있고
+%% 부모 항목과만 떨어진다. 값을 키우면 더 벌어진다.
+\newlength{\CVDetailGap}
+\setlength{\CVDetailGap}{1.4mm}
+\renewenvironment{Detail}
+{\par\vspace{\CVDetailGap}\begingroup\UseDetailFont}
+{\par\endgroup\par}
+
 %% 하위 항목 — 위 본문 열에서 시작해 한 단계 안쪽으로 들어간다.
 \renewcommand{\SubBulletItem}
 {\par\vspace{0\baselineskip}%
