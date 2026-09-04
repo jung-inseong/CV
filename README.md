@@ -104,16 +104,27 @@ Jung, Inseong. (2026, Aug.) ``제목.'' 학회명. 장소.
 
 번호 자리 너비는 설정 블록의 `\MaxNumberedItem`이 정한다. 지금은 두 자리(`88.`)로 잡혀 있어 항목이 10개를 넘어도 들여쓰기가 흔들리지 않는다.
 
-**들여쓰기 정렬** — 번호 항목은 숫자 자리를 잡느라 불릿 항목보다 본문이 오른쪽에서 시작한다. 그대로 두면 섹션마다 본문 시작 위치가 어긋나므로, `\BulletItem`·`\Item`·`\SubBulletItem`을 번호 항목의 열(`\CVItemCol`)에 맞춰 재정의해 두었다. 기호가 무엇이든 본문은 같은 열에서 시작한다.
+**들여쓰기 정렬** — 표식(불릿 ■, 번호 1.)과 머리글 텍스트가 **모두 같은 선에서 시작**하도록 맞춰 두었다.
+
+```
+Korea University, Seoul, South Korea          <- \Entry
+■   Master of Arts in Sociology               <- \BulletItem
+Sociology of Culture, Political ...           <- \Entry
+1.  Jung, Inseong. (2026, Aug.) ...           <- \NumItem
+↑ 같은 선          ↑ 본문도 같은 열
+```
+
+표식을 고정폭 상자(`\CVItemCol`)에 **좌측 정렬**로 넣고 본문을 그 뒤에서 시작시키는 방식이다. 상자 너비는 두 자리 번호(`\MaxNumberedItem` = `88.`) 기준이라 항목이 10개를 넘어도 본문 위치가 흔들리지 않고, 폰트를 바꾸면 다시 재므로 정렬이 유지된다.
 
 | 명령 | 쓰임 |
 |---|---|
-| `\NumItem` | 번호 항목 |
+| `\Entry` | 표식 없이 선에서 바로 시작 (기관명, Research Interests) |
 | `\BulletItem` | 불릿(■) 항목 |
-| `\Item` | 기호 없이 같은 열에서 시작 (Research Interests 등) |
-| `\SubBulletItem` | 하위(●) 항목, 한 단계 안쪽 |
+| `\NumItem` | 번호 항목 (자동 증가) |
+| `\Item` | 표식 없이 **본문 열**에서 시작 (표식 있는 항목과 본문만 맞출 때) |
+| `\SubBulletItem` | 하위(●) 항목. 본문 열에서 한 단계 안쪽 |
 
-`\Entry` 바로 뒤의 텍스트는 이 열보다 왼쪽, 즉 항목들의 머리글 위치에 놓인다(예: Education의 "Korea University"). 머리글도 항목과 같은 열에 맞추려면 `\Entry` 다음에 `\Item`을 넣으면 된다.
+정렬 관련 재정의는 모두 `CV.tex` 안에 있다. 클래스 파일은 건드리지 않았다.
 
 인용부호는 LaTeX 방식으로 쓴다: ``` ``큰따옴표'' ```
 

@@ -80,45 +80,47 @@ AutoFakeSlant=0.2]
 \renewcommand{\MaxNumberedItem}{88.}
 \newcounter{PresNo}
 \newcommand{\ResetNumbering}{\setcounter{PresNo}{0}}
-\newcommand{\NumItem}{\refstepcounter{PresNo}\NumberedItem{\thePresNo.}}
 
 %% 항목 들여쓰기 통일.
-%% 번호 항목은 두 자리 숫자 자리를 잡느라 불릿 항목보다 본문이 더
-%% 오른쪽에서 시작한다. 그대로 두면 섹션마다 본문 시작 위치가 어긋나므로,
-%% 번호 항목의 열 너비(\CVItemCol)를 기준으로 나머지를 모두 맞춘다.
-%% 폰트가 정해진 뒤에 재야 하므로 \AtBeginDocument 에서 측정한다.
+%%
+%% 원칙: 표식(불릿 ■, 번호 1.)과 머리글 텍스트(Korea University,
+%% Sociology of Culture)가 모두 같은 선에서 시작한다. 표식은 고정폭
+%% 상자에 좌측 정렬로 넣고, 본문은 그 상자 너비만큼 뒤에서 시작한다.
+%% 둘째 줄부터도 같은 위치로 들여써서(행잉 인덴트) 문단이 가지런하다.
+%%
+%% 상자 너비 = 두 자리 번호(88.) + 여백. 항목이 10개를 넘어도
+%% 본문 시작 위치가 흔들리지 않는다. 폰트가 정해진 뒤에 재야 하므로
+%% \AtBeginDocument 에서 측정한다.
 \newlength{\CVItemCol}
-\AtBeginDocument{%
-\settowidth{\CVItemCol}{\hspace{1.5mm}\MaxNumberedItem\hspace{2.5mm}}}
+\AtBeginDocument{\settowidth{\CVItemCol}{\MaxNumberedItem\hspace{2mm}}}
 
-%% 불릿 항목: 기호를 번호와 같은 열에 우측 정렬한다.
-\renewcommand{\BulletItem}
+%% 공통 뼈대: #1 = 표식(빈 값이면 표식 없이 자리만 차지)
+\newsavebox{\CVItemBox}
+\newlength{\CVItemBoxWidth}
+\newcommand{\CVMakeItem}[1]
 {\par\vspace{0\baselineskip}%
-\savebox{\BulletItemIndentBox}{\makebox[\CVItemCol][r]{\BulletSymbol\hspace{2.5mm}}}%
-\settowidth{\BulletItemIndentWidth}{\usebox{\BulletItemIndentBox}}%
+\savebox{\CVItemBox}{\makebox[\CVItemCol][l]{#1}}%
+\settowidth{\CVItemBoxWidth}{\usebox{\CVItemBox}}%
 \parshape 2%
 \labelwidth \linewidth%
-\dimexpr\labelwidth+\BulletItemIndentWidth\relax \dimexpr\linewidth-\BulletItemIndentWidth\relax%
-\usebox{\BulletItemIndentBox}%
+\dimexpr\labelwidth+\CVItemBoxWidth\relax \dimexpr\linewidth-\CVItemBoxWidth\relax%
+\usebox{\CVItemBox}%
 \ignorespaces%
 }
 
-%% 기호 없이 같은 열에서 시작하는 항목 (Research Interests 등).
-\renewcommand{\Item}
-{\par\vspace{0\baselineskip}%
-\savebox{\BulletItemIndentBox}{\hspace{\CVItemCol}}%
-\settowidth{\BulletItemIndentWidth}{\usebox{\BulletItemIndentBox}}%
-\parshape 2%
-\labelwidth \linewidth%
-\dimexpr\labelwidth+\BulletItemIndentWidth\relax \dimexpr\linewidth-\BulletItemIndentWidth\relax%
-\usebox{\BulletItemIndentBox}%
-\ignorespaces%
-}
+%% 번호 항목 — 번호가 선에서 시작한다.
+\newcommand{\NumItem}{\refstepcounter{PresNo}\CVMakeItem{\thePresNo.}}
 
-%% 하위 항목: 위 열에서 한 단계 더 들어간다.
+%% 불릿 항목 — 기호가 번호와 같은 선에서 시작한다.
+\renewcommand{\BulletItem}{\CVMakeItem{\BulletSymbol}}
+
+%% 표식 없이 본문만 같은 열에 맞추는 항목.
+\renewcommand{\Item}{\CVMakeItem{}}
+
+%% 하위 항목 — 위 본문 열에서 시작해 한 단계 안쪽으로 들어간다.
 \renewcommand{\SubBulletItem}
 {\par\vspace{0\baselineskip}%
-\savebox{\SubBulletItemIndentBox}{\hspace{\dimexpr\CVItemCol+1.5mm\relax}%
+\savebox{\SubBulletItemIndentBox}{\hspace{\CVItemCol}%
 \SubBulletSymbol\hspace{1.5mm}}%
 \settowidth{\SubBulletItemIndentWidth}{\usebox{\SubBulletItemIndentBox}}%
 \parshape 2%
@@ -180,7 +182,6 @@ Department of Sociology, Korea University, Seoul, South Korea
 {PDF:Education}
 
 \Entry
-\Item
 \textbf{Korea University}, Seoul, South Korea
 
 \Gap
@@ -213,7 +214,6 @@ Early Graduation with High Honors
 {PDF:ResearchInterests}
 
 \Entry
-\Item
 \textbf{Sociology of Culture, Political Polarization, Computational Sociology, Social Network}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
