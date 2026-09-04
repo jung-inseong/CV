@@ -67,6 +67,26 @@ latexmk -c                     # 중간 산출물 정리
 
 줄간격은 보통 글자크기의 1.2배가 기본이다. 분량을 1페이지로 줄이고 싶으면 본문을 `{9.5pt}{11.4pt}` 정도로 낮춘다.
 
+## 좌우 열 간격
+
+좌측 라벨(EDUCATION, CONFERENCE PRESENTATIONS…)과 우측 본문 사이 간격도 설정 블록에서 조절한다.
+
+```latex
+\setlength{\CVLabelWidth}{1.2in}   % 라벨 글자 폭 (여기서 줄바꿈)
+\setlength{\CVColGap}{7mm}         % 두 열 사이 빈 간격
+```
+
+템플릿 원본은 이 둘이 분리되어 있지 않고 `labelsep`이 0이라, 긴 라벨이 본문에 거의 닿았다. 둘을 나눠 두었으니 `\CVColGap`만 키우면 벌어진다.
+
+본문 시작 위치는 `\CVLabelWidth + \CVColGap`이다. 간격을 키우면 본문 폭이 그만큼 좁아지니, 너무 키우면 줄바꿈이 늘어난다. 라벨이 상자를 넘치는지는 빌드 로그에서 `Overfull \hbox`로 확인할 수 있다.
+
+## 그 밖의 간격
+
+```latex
+\newcommand{\SectionGap}{\par\vspace{3.5mm}\par}  % 섹션 사이 (필요한 곳에 직접 넣음)
+\setlength{\CVDetailGap}{1.4mm}                   % 상위 항목과 하위(●) 항목 사이
+```
+
 클래스 파일(`simpleresumecv.cls`)은 건드리지 않고 `CV.tex`에서 덮어쓰는 방식이라, 템플릿 원본은 그대로 남는다.
 
 ## 자주 쓰는 문법

@@ -52,11 +52,11 @@ AutoFakeSlant=0.2]
 %% ── 본문 크기와 줄간격 ────────────────────────────────────────
 %% {글자크기}{줄간격}. 두 번째 값이 줄간격이며, 보통 글자크기의
 %% 1.2배가 기본이다. 아래는 1.3배로 조금 넉넉하게 잡은 것이다.
-\renewcommand{\normalsize}{\fontsize{10pt}{14pt}\selectfont}
+\renewcommand{\normalsize}{\fontsize{9pt}{12pt}\selectfont}
 \normalsize
 
 %% ── 부분별 크기 (필요할 때만 조정) ─────────────────────────────
-\renewcommand{\UseTitleFont}{\UseHeadingFont\fontsize{20pt}{24pt}\selectfont\bfseries}
+\renewcommand{\UseTitleFont}{\UseHeadingFont\fontsize{17pt}{22pt}\selectfont\bfseries}
 \renewcommand{\UseSubTitleFont}{\normalfont\fontsize{9pt}{11pt}\selectfont}
 \renewcommand{\UseSectionFont}{\UseHeadingFont\fontsize{9pt}{11pt}\selectfont\bfseries}
 \renewcommand{\UseDetailFont}{\normalfont\fontsize{8.8pt}{10.6pt}\selectfont}
@@ -65,6 +65,19 @@ AutoFakeSlant=0.2]
 %% 앞 섹션 내용이 한 줄뿐이면 다음 섹션 제목이 바짝 붙어 보인다.
 %% 그럴 때 \Section 앞에 \SectionGap 을 넣는다.
 \newcommand{\SectionGap}{\par\vspace{3.5mm}\par}
+
+%% ── 좌측 라벨 열과 우측 본문 열 ────────────────────────────────
+%% 클래스는 라벨 폭과 본문 시작 위치를 둘 다 1.2in 으로 잡고 그 사이
+%% 간격을 0 으로 두었다. 그래서 CONFERENCE PRESENTATIONS 처럼 긴
+%% 라벨은 본문에 거의 닿는다. 아래 둘로 분리해 조절한다.
+%%
+%%   \CVLabelWidth : 좌측 라벨의 글자 폭 (여기서 줄바꿈된다)
+%%   \CVColGap     : 두 열 사이 빈 간격  ← 이 값을 키우면 더 벌어진다
+%%
+%% 본문 시작 위치 = \CVLabelWidth + \CVColGap 이므로, 간격을 키우면
+%% 본문 폭은 그만큼 좁아진다.
+\newlength{\CVLabelWidth}\setlength{\CVLabelWidth}{1.2in}
+\newlength{\CVColGap}\setlength{\CVColGap}{7mm}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% ▲▲▲ 설정 끝 ▲▲▲
@@ -138,6 +151,40 @@ AutoFakeSlant=0.2]
 \usebox{\SubBulletItemIndentBox}%
 \ignorespaces%
 }
+
+%% 두 열 분리 적용.
+%% 클래스 원본은 leftmargin = labelwidth = 1.2in, labelsep = 0 이라
+%% 라벨과 본문 사이에 빈 간격이 없다. 본문 시작을 \CVColGap 만큼 더
+%% 오른쪽으로 밀고, 라벨 글자는 \CVLabelWidth 안에서만 줄바꿈시킨다.
+%% 라벨 상자는 전체 폭을 차지하되 내용은 좌측 정렬이라 위치는 그대로다.
+\renewenvironment{Body}
+{%
+\par\vspace{1.5\baselineskip}%
+\begin{list}
+{}
+{\setlength\leftmargin{\dimexpr\CVLabelWidth+\CVColGap\relax}%
+\setlength\rightmargin{0in}%
+\setlength\labelwidth{\dimexpr\CVLabelWidth+\CVColGap\relax}%
+\setlength\labelsep{0in}%
+\setlength\listparindent{0in}%
+\setlength\itemindent{0in}%
+\setlength\parskip{0in}%
+\setlength\topsep{0in}%
+\setlength\parsep{0in}%
+\setlength\itemsep{0.90\baselineskip}%
+\setlength\partopsep{0in}%
+}%
+}
+{%
+\end{list}%
+\par%
+}
+
+\renewcommand{\Section}[3]
+{\par\pdfbookmark[2]{#2}{#3}%
+\item[\smash{\makebox[\dimexpr\CVLabelWidth+\CVColGap\relax][l]{%
+\parbox[t]{\CVLabelWidth}{\UseSectionFont\raggedright\MakeUppercase{#1}}}}]%
+\par}
 
 %% 마침표 뒤 여분 공백을 없앤다. 발표 목록처럼 마침표가 많은 항목에서
 %% 줄이 불필요하게 늘어나 오른쪽 끝의 날짜가 다음 줄로 밀리는 것을 막는다.
