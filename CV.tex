@@ -24,14 +24,46 @@
 \newcommand{\CVNote}{}
 \newcommand{\CVWebpage}{https://github.com/jung-inseong}
 
-%% 한글 지원.
-%% 템플릿 기본 폰트(Tinos, GNU FreeFont)에는 한글 글리프가 없다.
-%% ucharclasses 가 한글 문자를 만나면 자동으로 아래 폰트로 바꿔주므로
-%% 본문에서 한글을 따로 감쌀 필요가 없다.
-\usepackage{ucharclasses}
-\newfontfamily\KoreanFont{Malgun Gothic}
-\setTransitionsFor{HangulSyllables}{\KoreanFont}{\normalfont}
-\setTransitionsFor{HangulCompatibilityJamo}{\KoreanFont}{\normalfont}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% ▼▼▼ 여기만 고치면 문서 전체 모양이 바뀐다 ▼▼▼
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% ── 폰트 ───────────────────────────────────────────────────────
+%% 영문·한글·불릿기호를 한 폰트로 통일한다. 두 폰트 모두 한글 글리프가
+%% 있으므로 한글용 폰트를 따로 얹거나 본문에서 감쌀 필요가 없다.
+%%
+%% 전환 방법: 쓰려는 쪽의 % 를 떼고, 안 쓰는 쪽 4줄에 % 를 붙인다.
+
+%% [A] Pretendard — 산세리프. 현재 사용 중.
+% \setmainfont{Pretendard-Regular.otf}
+% [Path=./Fonts/Pretendard/,
+% BoldFont=Pretendard-Bold.otf,
+% AutoFakeSlant=0.2]
+
+%% [B] KoPubWorld Batang — 명조체. 글자가 넓어 분량이 다소 늘어난다.
+\setmainfont{KoPubWorld Batang Medium.ttf}
+[Path=./Fonts/KoPubWorldBatang/,
+BoldFont=KoPubWorld Batang Bold.ttf,
+AutoFakeSlant=0.2]
+
+%% 클래스가 GNU FreeSerif 로 잡아둔 보조 폰트도 본문 폰트로 통일한다.
+\renewcommand{\UseSecondaryFont}{\normalfont}
+
+%% ── 본문 크기와 줄간격 ────────────────────────────────────────
+%% {글자크기}{줄간격}. 두 번째 값이 줄간격이며, 보통 글자크기의
+%% 1.2배가 기본이다. 아래는 1.3배로 조금 넉넉하게 잡은 것이다.
+\renewcommand{\normalsize}{\fontsize{10pt}{13pt}\selectfont}
+\normalsize
+
+%% ── 부분별 크기 (필요할 때만 조정) ─────────────────────────────
+\renewcommand{\UseTitleFont}{\UseHeadingFont\fontsize{26pt}{31pt}\selectfont\bfseries}
+\renewcommand{\UseSubTitleFont}{\normalfont\fontsize{9pt}{11pt}\selectfont}
+\renewcommand{\UseSectionFont}{\UseHeadingFont\fontsize{9pt}{11pt}\selectfont\bfseries}
+\renewcommand{\UseDetailFont}{\normalfont\fontsize{8.8pt}{10.6pt}\selectfont}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% ▲▲▲ 설정 끝 ▲▲▲
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% 마침표 뒤 여분 공백을 없앤다. 발표 목록처럼 마침표가 많은 항목에서
 %% 줄이 불필요하게 늘어나 오른쪽 끝의 날짜가 다음 줄로 밀리는 것을 막는다.

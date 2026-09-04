@@ -23,15 +23,51 @@ latexmk -c                     # 중간 산출물 정리
 | `Fonts/` | Tinos, GNU FreeFont — **상대경로로 참조하므로 옮기면 안 된다** |
 | `CV.pdf` | 빌드 결과. 공유용이라 저장소에 함께 둔다 |
 
-## 한글
+## 폰트 바꾸기
 
-템플릿 기본 폰트에는 한글 글리프가 없어서 Windows의 **Malgun Gothic**을 얹었다. `ucharclasses`가 한글 문자를 만나면 자동으로 폰트를 바꿔주므로 **본문에서 한글을 따로 감쌀 필요가 없다.** 그냥 쓰면 된다.
+`CV.tex` 상단 설정 블록에서 두 폰트를 갈아끼울 수 있다. 쓰려는 쪽의 `%`를 떼고, 안 쓰는 쪽 4줄에 `%`를 붙이면 된다.
+
+| | 성격 | 분량 |
+|---|---|---|
+| **Pretendard** (현재) | 산세리프, 현대적 | 좁아서 한 줄에 많이 들어감 |
+| **KoPubWorld Batang** | 명조, 학술 문서 느낌 | 넓어서 분량이 다소 늘어남 |
+
+```latex
+%% [A] Pretendard
+\setmainfont{Pretendard-Regular.otf}
+[Path=./Fonts/Pretendard/, BoldFont=Pretendard-Bold.otf, AutoFakeSlant=0.2]
+
+%% [B] KoPubWorld Batang
+% \setmainfont{KoPubWorld Batang Medium.ttf}
+% [Path=./Fonts/KoPubWorldBatang/, BoldFont=KoPubWorld Batang Bold.ttf, AutoFakeSlant=0.2]
+```
+
+**한글은 그냥 쓰면 된다.** 두 폰트 모두 한글 글리프를 가지고 있어서 영문·한글·불릿기호가 한 폰트로 나온다. 예전처럼 한글용 폰트를 따로 얹거나 본문에서 감쌀 필요가 없다.
 
 ```latex
 정인성. ``정치적 양극화의 다차원성.'' 한국사회학회. 부산, 대한민국.
 ```
 
-다른 컴퓨터에서 빌드하려면 Malgun Gothic이 있어야 한다. 없으면 `CV.tex`의 `\newfontfamily\KoreanFont{...}`를 `NanumGothic`이나 `Noto Sans KR`로 바꾼다.
+> `Fonts/Tinos/`와 `Fonts/GNUFreeFont/`는 지우면 안 된다. 클래스 파일이 로드 시점에 이 둘을 먼저 읽고, 그 뒤에 `CV.tex`가 덮어쓰는 구조다.
+
+## 크기와 줄간격 바꾸기
+
+같은 설정 블록에 있다. `\fontsize{글자크기}{줄간격}` 형식이고, 두 번째 값이 줄간격이다.
+
+```latex
+%% 본문 — 현재 10pt / 13pt (1.3배)
+\renewcommand{\normalsize}{\fontsize{10pt}{13pt}\selectfont}
+
+%% 부분별
+\renewcommand{\UseTitleFont}{...\fontsize{26pt}{31pt}...}      % 이름
+\renewcommand{\UseSubTitleFont}{...\fontsize{9pt}{11pt}...}    % 소속·이메일
+\renewcommand{\UseSectionFont}{...\fontsize{9pt}{11pt}...}     % 좌측 섹션 라벨
+\renewcommand{\UseDetailFont}{...\fontsize{8.8pt}{10.6pt}...}  % 하위 항목
+```
+
+줄간격은 보통 글자크기의 1.2배가 기본이다. 분량을 1페이지로 줄이고 싶으면 본문을 `{9.5pt}{11.4pt}` 정도로 낮춘다.
+
+클래스 파일(`simpleresumecv.cls`)은 건드리지 않고 `CV.tex`에서 덮어쓰는 방식이라, 템플릿 원본은 그대로 남는다.
 
 ## 자주 쓰는 문법
 
@@ -61,5 +97,7 @@ latexmk -c                     # 중간 산출물 정리
 ## 라이선스
 
 템플릿: [simple-resume-cv](https://github.com/zachscrivena/simple-resume-cv) by Zach Scrivena — Unlicense (public domain).
-폰트: Tinos (Apache License 2.0), GNU FreeFont (GPL).
-이력 내용은 저작자 본인에게 있다.
+
+폰트: Tinos (Apache License 2.0), GNU FreeFont (GPL), Pretendard (SIL Open Font License 1.1), KoPubWorld Batang (한국출판인회의 KoPub 서체).
+
+이력 내용의 권리는 저작자 본인에게 있다.
