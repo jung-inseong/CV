@@ -14,6 +14,14 @@ latexmk -xelatex -pvc CV.tex   # 저장할 때마다 자동 재컴파일
 latexmk -c                     # 중간 산출물 정리
 ```
 
+**두 번 이상 돌려야 한다.** 하단의 `Page 1 of N`은 문서 전체 페이지 수를 참조하는데, 이 값은 1회차 컴파일에서 알 수 없어 `??`로 나오고 2회차에 확정된다. `latexmk`는 필요한 횟수만큼 알아서 반복하므로 위 명령이면 된다. `xelatex`를 직접 쓴다면 **두 번** 실행한다.
+
+```bash
+xelatex CV.tex  &&  xelatex CV.tex
+```
+
+VS Code(LaTeX Workshop)용 레시피를 `.vscode/settings.json`에 넣어 두었다. 이 폴더를 열면 `latexmk (xelatex)`가 기본으로 잡힌다. **`xelatex` 1회짜리 레시피를 고르면 `??`가 남는다.**
+
 ## 구성
 
 | 파일 | 역할 |

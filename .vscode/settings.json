@@ -1,0 +1,43 @@
+{
+  // 이 저장소 전용 LaTeX 빌드 설정.
+  //
+  // CV 하단의 "Page 1 of N" 은 문서 전체 페이지 수를 참조한다. 이 값은
+  // 1회차 컴파일에서는 알 수 없어 ?? 로 나오고, 2회차에 확정된다.
+  // xelatex 를 한 번만 돌리는 레시피를 쓰면 계속 ?? 가 남는다.
+  //
+  // 아래 latexmk 레시피는 필요한 횟수만큼 알아서 반복한다.
+  "latex-workshop.latex.tools": [
+    {
+      "name": "latexmk-xe",
+      "command": "latexmk",
+      "args": [
+        "-xelatex",
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "%DOC%"
+      ]
+    },
+    {
+      "name": "xelatex",
+      "command": "xelatex",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "%DOC%"
+      ]
+    }
+  ],
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "latexmk (xelatex)",
+      "tools": ["latexmk-xe"]
+    },
+    {
+      "name": "xelatex x2",
+      "tools": ["xelatex", "xelatex"]
+    }
+  ],
+  "latex-workshop.latex.recipe.default": "latexmk (xelatex)"
+}

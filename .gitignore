@@ -152,3 +152,7 @@ CV_Inseong_JUNG_20260309.pdf
 ## 도구 작업 폴더
 .omc/
 .claude/
+
+## .vscode/settings.json 은 저장소에 포함한다.
+## xelatex 를 1회만 돌리면 "Page 1 of ??" 가 남으므로 빌드 레시피를
+## 저장소에 함께 두어야 한다. (.vscode/ 를 통째로 제외하지 말 것)
