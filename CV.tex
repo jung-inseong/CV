@@ -60,19 +60,19 @@ AutoFakeSlant=0.2]
 %% ── 본문 크기와 줄간격 ────────────────────────────────────────
 %% {글자크기}{줄간격}. 두 번째 값이 줄간격이며, 보통 글자크기의
 %% 1.2배가 기본이다. 아래는 1.3배로 조금 넉넉하게 잡은 것이다.
-\renewcommand{\normalsize}{\fontsize{9pt}{12.5pt}\selectfont}
+\renewcommand{\normalsize}{\fontsize{9pt}{14pt}\selectfont}
 \normalsize
 
 %% ── 부분별 크기 (필요할 때만 조정) ─────────────────────────────
 \renewcommand{\UseTitleFont}{\UseHeadingFont\fontsize{17pt}{22pt}\selectfont\bfseries}
 \renewcommand{\UseSubTitleFont}{\normalfont\fontsize{9pt}{11pt}\selectfont}
 \renewcommand{\UseSectionFont}{\UseHeadingFont\fontsize{9pt}{11pt}\selectfont\bfseries}
-\renewcommand{\UseDetailFont}{\normalfont\fontsize{8.8pt}{10.6pt}\selectfont}
+\renewcommand{\UseDetailFont}{\normalfont\fontsize{8.8pt}{12pt}\selectfont}
 
 %% ── 섹션 사이 여백 ────────────────────────────────────────────
 %% 앞 섹션 내용이 한 줄뿐이면 다음 섹션 제목이 바짝 붙어 보인다.
 %% 그럴 때 \Section 앞에 \SectionGap 을 넣는다.
-\newcommand{\SectionGap}{\par\vspace{3.5mm}\par}
+\newcommand{\SectionGap}{\par\vspace{3mm}\par}
 
 %% ── 좌측 라벨 열과 우측 본문 열 ────────────────────────────────
 %% 클래스는 라벨 폭과 본문 시작 위치를 둘 다 1.2in 으로 잡고 그 사이
@@ -254,6 +254,10 @@ Master of Arts in Sociology (Expected)
 \hfill
 \DatestampY{2025} --
 \DatestampY{2027}
+\begin{Detail}
+\SubBulletItem
+Overall GPA: 4.0/4.0
+\end{Detail}
 
 \Gap
 \BulletItem
@@ -263,22 +267,24 @@ Bachelor of Arts in Sociology and Bachelor of Economics
 \DatestampY{2025}
 \begin{Detail}
 \SubBulletItem
+Overall GPA: 3.8/4.0
+\SubBulletItem
 Accelerated B.A.--M.A. Program in Sociology
 \SubBulletItem
-Early Graduation with High Honors
+Early Graduation with Great Honors
 \end{Detail}
 
 %%%%%%%%%%%%%%%%%%%%%%
 %% RESEARCH INTEREST %%
 %%%%%%%%%%%%%%%%%%%%%%
-
+\SectionGap
 \Section
 {Research Interests}
 {Research Interests}
 {PDF:ResearchInterests}
 
 \Entry
-\textbf{Sociology of Culture, Political Polarization, Computational Sociology, Social Network}
+\textbf{Sociology of Culture, Political Polarization, Computational Social Science, Social Network Analysis}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% CONFERENCE PRESENTATIONS %%
@@ -311,12 +317,24 @@ New York, United States.
 \NumItem
 \textbf{Jung, Inseong}. (2026, Jun.)
 ``Multidimensionality of Political Polarization: A Belief System and Word Embedding Approach.''
-Korean Sociological Association Conference.
+Koran Sociological Association Conference.
 Busan, South Korea.
 \begin{Detail}
 \SubBulletItem
 정인성. (2026, Jun.) ``정치적 양극화의 다차원성: 신념 체계와 발화 임베딩 연구.''
 한국사회학회 전기사회학대회. 부산, 대한민국.
+\end{Detail}
+
+\Gap
+\NumItem
+Yang, Yeojin, Seoyoung Lee, and \textbf{Inseong Jung}. (2026, Jan.)
+``Regional Disparities in Cultural Infrastructure and Quality of Life: An ML-Based Policy Intervention Simulation Approach''
+Academic Conference for the 22nd Anniversary of the Declaration of Balanced National Development.
+Mokpo, South Korea.
+\begin{Detail}
+\SubBulletItem
+양여진, 이서영, 정인성. (2026, Jan.) ``ML 기반 정책 개입 시뮬레이션을 활용한 지역 간 문화기반시설 격차의 삶의 질 연구.''
+국가균형발전선언 22주년 기념 학술제 . 목포, 대한민국.
 \end{Detail}
 
 \Gap
@@ -373,55 +391,15 @@ the Sewol Ferry Disaster and the Itaewon Tragedy.''
 PNC 2024 Annual Conference and Joint Meetings.
 Seoul, South Korea.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% GRANTS & SCHOLARSHIPS %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\Section
-{Grants \& Scholarships}
-{Grants \& Scholarships}
-{PDF:GrantsScholarships}
-
-\Entry
-\BulletItem
-Brain Korea 21 Graduate Scholarship, National Research Foundation
-\hfill
-\DatestampY{2026}
-
-\Gap
-\BulletItem
-Student Researcher Project Grant, Rohmuhyun Foundation
-\hfill
-\DatestampY{2025}
-\begin{Detail}
-\SubBulletItem
-Project: Cultural Infrastructure Disparity and Quality of Life
-\SubBulletItem
-KRW 3,000,000 (USD 2,200)
-\SubBulletItem
-노무현재단 2025년 학생주도 연구프로젝트. 문화기반시설 격차와 삶의 질.
-\end{Detail}
-
-\Gap
-\BulletItem
-Humanities 100-Year Scholarship, Korea Scholarship Foundation
-\hfill
-\DatestampY{2024}
-\begin{Detail}
-\SubBulletItem
-Undergraduate Tuition Scholarship
-\SubBulletItem
-한국장학재단 인문 100년 장학금.
-\end{Detail}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% PROJECTS & EXPERIENCES %%
+%% RESEARCH EXPERIENCES %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\SectionGap
 \Section
-{Projects \& Experiences}
-{Projects \& Experiences}
-{PDF:ProjectsExperiences}
+{Research Experiences}
+{Research Experiences}
+{PDF:ResearchExperiences}
 
 \Entry
 \BulletItem
@@ -430,7 +408,7 @@ Undergraduate Tuition Scholarship
 \DatestampY{2026} --
 \begin{Detail}
 \SubBulletItem
-Principal Investigator: Eun Kyong Shin
+Principal Investigator: Prof. Eun Kyong Shin
 \end{Detail}
 
 \Gap
@@ -458,6 +436,132 @@ Project: Governance for Responding to a Post-Truth Society
 Data research and organization
 \end{Detail}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% GRANTS & SCHOLARSHIPS %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\SectionGap
+\Section
+{Grants \& Scholarships}
+{Grants \& Scholarships}
+{PDF:GrantsScholarships}
+
+\Entry
+\BulletItem
+\textbf{Student Researcher Project Grant}, Rohmuhyun Foundation
+\hfill
+\DatestampY{2025}
+\begin{Detail}
+\SubBulletItem
+Project: Cultural Infrastructure Disparity and Quality of Life
+\SubBulletItem
+KRW 3,000,000 (USD 2,200)
+\end{Detail}
+
+\Gap
+\BulletItem
+\textbf{AI/SW Graudate Student Scholarship}, \\ Humanities and Social Sciences Program, Korea University
+\hfill
+\DatestampY{2026}
+\begin{Detail}
+\SubBulletItem
+KRW 12,000,000 (USD 8,800)
+\end{Detail}
+
+
+\Gap
+\BulletItem
+\textbf{Brain Korea 21 Graduate Scholarship}, National Research Foundation
+\hfill
+\DatestampY{2026}
+\begin{Detail}
+\SubBulletItem
+Recognization and support for excellent graduate students
+\SubBulletItem
+KRW 6,000,000 (USD 4,400)
+\end{Detail}
+
+
+\Gap
+\BulletItem
+\textbf{BA-MA Acceleration Program Scholarship}, Korea University
+\hfill
+\DatestampY{2025} --
+\DatestampY{2026} 
+\begin{Detail}
+\SubBulletItem
+KRW 8,998,000(USD 6,600)
+\end{Detail}
+
+\Gap
+\BulletItem
+\textbf{Humanities 100-Year Scholarship}, Korea Scholarship Foundation
+\hfill
+\DatestampY{2024}
+\begin{Detail}
+\SubBulletItem
+National scholarship to support excellent undergraduates in humanities and social sciences
+\SubBulletItem
+KRW 3,560,000 (USD 2,600)
+\end{Detail}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Honors & Awards %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\SectionGap
+\Section
+{Honors \& Awards}
+{Honors \& Awards}
+{PDF: Honorsawards}
+
+\Entry
+
+
+\BulletItem
+\textbf{Graduation with Great Honor}, College of Liberal Arts, Korea University
+\hfill
+\DatestampY{2024}
+
+\Gap
+\BulletItem
+\textbf{Dean's List}, College of Liberal Arts, Korea University
+\hfill
+\DatestampY{2020},
+\DatestampY{2023}
+
+\Gap
+\BulletItem
+\textbf{Semester High Honors}, College of Liberal Arts, Korea University
+\hfill
+\DatestampY{2020} --
+\DatestampY{2025}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% OTHER EXPERIENCES %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\SectionGap
+\Section
+{Other Experiences}
+{Other Experiences}
+{PDF:OtherExperiences}
+
+\Entry
+
+\BulletItem
+\textbf{Intensive AI \& Deep Learning Bootcamp}, \\ Humanities and Social Science Program, Korea University
+\hfill
+\DatestampY{2025}
+\begin{Detail}
+\SubBulletItem
+Mathematical foundations of AI (Linear Algebra, Calculus, Optimization)
+\SubBulletItem
+Coding Session for deep learning (PyTorch, Neural Networks)
+\SubBulletItem
+Using Large Language Models for research
+\end{Detail}
+
 \Gap
 \BulletItem
 \textbf{Sergeant}, Korean Augmentation to the United States Army, ROK Army
@@ -472,6 +576,10 @@ Mandatory military service
 \SubBulletItem
 Cultural support and translation for the US armed forces in South Korea
 \end{Detail}
+
+
+
+
 
 \end{Body}
 
