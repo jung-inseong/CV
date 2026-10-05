@@ -1,0 +1,235 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CV_classic.tex -- Inseong Jung
+% Classic layout based on Resume_for_Frehers.tex + resume.cls
+% (resume.cls must be in the same directory)
+%
+% Build: latexmk -pdf CV_classic.tex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass{resume} % Use the custom resume.cls style
+
+\usepackage[a4paper,left=0.75in,top=0.6in,right=0.75in,bottom=0.75in,footskip=0.35in]{geometry} % Document margins
+\usepackage[T1]{fontenc}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+
+% Compact sub-items under an entry
+\setlist[itemize]{label=$\cdot$, leftmargin=1.2em, topsep=-0.6\parskip, itemsep=0pt, parsep=0pt, partopsep=0pt}
+\setlist[enumerate]{leftmargin=1.8em, topsep=0pt, itemsep=0.4em, parsep=0pt, partopsep=0pt}
+
+\hypersetup{
+pdftitle={Inseong Jung -- Curriculum Vitae},
+pdfauthor={Inseong Jung},
+pdfsubject={Curriculum Vitae},
+pdfkeywords={sociology, political polarization, computational sociology}}
+
+\def\nameskip{\smallskip} % Space between name and address (resume.cls default: \bigskip)
+% Footer page numbers "Page X of Y" (resume.cls default: none)
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\cfoot{\small Page \thepage\ of \pageref*{LastPage}}
+\pagestyle{fancy}
+
+\name{Inseong Jung} % Your name
+\address{Department of Sociology, Korea University, Seoul, South Korea} % Your address
+\address{\href{mailto:prsnlity01@korea.ac.kr}{prsnlity01@korea.ac.kr}} % Your email
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Education}
+
+{\bf Korea University}, Seoul, South Korea
+\\ Master of Arts in Sociology (Expected) \hfill {2025 -- 2027}
+\begin{itemize}
+  \item Overall GPA: 4.0/4.0
+\end{itemize}
+\smallskip
+Bachelor of Arts in Sociology and Bachelor of Economics \hfill {2020 -- 2025}
+\begin{itemize}
+  \item Overall GPA: 3.8/4.0
+  \item Accelerated B.A.--M.A. Program in Sociology
+  \item Early Graduation with Great Honors
+\end{itemize}
+
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+%	RESEARCH INTERESTS
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Research Interests}
+
+Sociology of Culture, Political Polarization, Computational Social Science, Social Network Analysis
+
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+%	CONFERENCE PRESENTATIONS
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Conference Presentations}
+
+\begin{enumerate}
+  \item {\bf Jung, Inseong} and Eun Kyong Shin. (2026, Aug.)
+  ``Have the US Partisans Become More Predictable? A Machine Learning Approach.''
+  2026 ASA Annual Meeting, Political Sociology Section Roundtable.
+  New York, United States.
+
+  \item {\bf Jung, Inseong}. (2026, Aug.)
+  ``Do You Talk the Way You Think? Multidimensional Belief System and Unidimensional Talk.''
+  2026 Association of Korean American Sociologists Conference.
+  New York, United States.
+
+  \item {\bf Jung, Inseong}. (2026, Jun.)
+  ``Multidimensionality of Political Polarization: A Belief System and Word Embedding Approach.''
+  Korean Sociological Association Conference.
+  Busan, South Korea.
+
+  \item Yang, Yeojin, Seoyoung Lee, and {\bf Inseong Jung}. (2026, Jan.)
+  ``Regional Disparities in Cultural Infrastructure and Quality of Life: An ML-Based Policy Intervention Simulation Approach.''
+  Academic Conference for the 22nd Anniversary of the Declaration of Balanced National Development.
+  Mokpo, South Korea.
+
+  \item {\bf Jung, Inseong}. (2025, Nov.)
+  ``How Do Attitudes Predict Partisan Identity? A Machine Learning Approach.''
+  Critical Sociological Association Conference.
+  Seoul, South Korea.
+
+  \item Shin, Eun Kyong, Hannah Baek, and {\bf Inseong Jung}. (2025, Nov.)
+  ``A Machine Learning Trilogy: Unraveling Adult Intelligence, Adolescent Academic
+  Achievement, and Political Identity.''
+  Harvard University Urban Data Workshop.
+  Massachusetts, United States.
+
+  \item {\bf Jung, Inseong}. (2025, Aug.)
+  ``Martial Law and the Amplification of Affective Antagonism:
+  Online Community Posts Analysis for the Two Major Parties.''
+  Summer Conference of Critical Sociological Association of Korea.
+  Chungju, South Korea.
+
+  \item {\bf Jung, Inseong}. (2024, Dec.)
+  ``Who Becomes an Adult? Effect of Regional Origin and Family Background
+  on Attaining Traditional Markers of Adulthood.''
+  Korean Sociological Association Conference.
+  Seoul, South Korea.
+
+  \item {\bf Jung, Inseong}. (2023, Aug.)
+  ``Accident or State Violence? Social Disaster Discourse Analysis on
+  the Sewol Ferry Disaster and the Itaewon Tragedy.''
+  PNC 2024 Annual Conference and Joint Meetings.
+  Seoul, South Korea.
+\end{enumerate}
+
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+%	RESEARCH EXPERIENCES
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Research Experiences}
+
+{\bf Research Assistant}{, Lab Sociomarkers, Korea University} \hfill {2026 -- Present}
+\begin{itemize}
+  \item Principal Investigator: Prof. Eun Kyong Shin
+\end{itemize}
+\smallskip
+{\bf Student Researcher}{, Korea University Alumni Association} \hfill {2024 -- 2025}
+\begin{itemize}
+  \item Project: Korea University 120th Anniversary Alumni Engagement Survey
+  \item Online survey design, data collection and analysis
+\end{itemize}
+\smallskip
+{\bf Research Assistant}{, Korea Information Society Development Institute} \hfill {2024}
+\begin{itemize}
+  \item Project: Governance for Responding to a Post-Truth Society
+  \item Data research and organization
+\end{itemize}
+
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+%	GRANTS & SCHOLARSHIPS
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Grants \& Scholarships}
+
+{\bf Student Researcher Project Grant}{, Rohmuhyun Foundation} \hfill {2025}
+\begin{itemize}
+  \item Project: Cultural Infrastructure Disparity and Quality of Life
+  \item KRW 3,000,000 (approx. USD 2,200)
+\end{itemize}
+\smallskip
+{\bf AI/SW Graduate Student Scholarship} \hfill {2026}
+\\ Humanities and Social Sciences Program, Korea University
+\begin{itemize}
+  \item KRW 12,000,000 (approx. USD 8,800)
+\end{itemize}
+\smallskip
+{\bf Brain Korea 21 Graduate Scholarship}{, National Research Foundation} \hfill {2026}
+\begin{itemize}
+  \item Recognition and support for excellent graduate students
+  \item KRW 6,000,000 (approx. USD 4,400)
+\end{itemize}
+\smallskip
+{\bf BA-MA Acceleration Program Scholarship}{, Korea University} \hfill {2025 -- 2026}
+\begin{itemize}
+  \item KRW 8,998,000 (approx. USD 6,600)
+\end{itemize}
+\smallskip
+{\bf Humanities 100-Year Scholarship}{, Korea Scholarship Foundation} \hfill {2024}
+\begin{itemize}
+  \item National scholarship to support excellent undergraduates in humanities and social sciences
+  \item KRW 3,560,000 (approx. USD 2,600)
+\end{itemize}
+
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+%	HONORS & AWARDS
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Honors \& Awards}
+
+{\bf Graduation with Great Honor}{, College of Liberal Arts, Korea University} \hfill {2024}
+\\ {\bf Dean's List}{, College of Liberal Arts, Korea University} \hfill {2020, 2023}
+\\ {\bf Semester High Honors}{, College of Liberal Arts, Korea University} \hfill {2020 -- 2025}
+
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+%	OTHER EXPERIENCES
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Other Experiences}
+
+{\bf Organizer}{, Peer-Led Statistics Workshop for Graduate Students} \hfill {Summer 2026}
+\begin{itemize}
+  \item Organized and led sessions on basic statistics, linear regression, and logistic regression
+  \item Prepared session notes and Python exercises for fellow graduate students
+  \item \href{https://drive.google.com/drive/folders/1xu6bPa2gu-HVmrbeXuiZJZ-ZOYxcVQFO?usp=sharing}{\underline{Workshop materials}} (in Korean)
+\end{itemize}
+\smallskip
+{\bf Intensive AI \& Deep Learning Bootcamp} \hfill {2025}
+\\ Humanities and Social Science Program, Korea University
+\begin{itemize}
+  \item Mathematical foundations of AI (Linear Algebra, Calculus, Optimization)
+  \item Coding Session for deep learning (PyTorch, Neural Networks)
+  \item Using Large Language Models for research
+\end{itemize}
+\smallskip
+{\bf Sergeant}{, Korean Augmentation to the United States Army, ROK Army} \hfill {2021 -- 2023}
+\begin{itemize}
+  \item RADAR Platoon, 2nd Battalion, 3rd FA Regiment, 1st ABCT, 1st Division, US Army
+  \item Mandatory military service
+  \item Cultural support and translation for the US armed forces in South Korea
+\end{itemize}
+
+\end{rSection}
+
+\end{document}
